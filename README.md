@@ -27,7 +27,7 @@ The questions are as follows:
 
 
 #Link to the Video
-TODO
+https://vimeo.com/149692858
 #Link to the Demo
 https://viz-ug-forum.herokuapp.com/
 
