@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 #Visualizing Underground Forums
 
 #Authors: 
@@ -65,6 +63,3 @@ https://docs.google.com/document/d/1GEJRPKSQn9C6MsqHQsrdRlBwiPdV2nJGv20Clql1yoU/
 This data is not public for security purposes.
 
 The derived data is also not shared (due to large size) but can be obtained by running transform.py with python. The data that transform.py will use is in /csv, which contains intermediary, derived data from the original dataset.
-=======
-# Group-5
->>>>>>> d0001e8ebfd45b6c3f574d31bdeef167ecd7948b
