@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+    <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
+    <title>LRhand</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* to remove the top and left whitespace */
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        /* just to be sure these are full screen*/
+        
+        canvas {
+            display: block;
+        }
+        /* To remove the scrollbars */
+        /* to show the canvas bounds */
+        
+        canvas {
+            background: #eee;
+        }
+        
+    </style>
+</head>
+
+<body onload="init()">
+    <!--    <canvas id="mainCanvas" style = "width: 100%; height: 100%"></canvas>-->
+    <canvas id="mainCanvas"></canvas>
+</body>
+
+</html>
+
+
+
+<script>
+    (function () {
+        var canvas = document.getElementById('mainCanvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    })();
+
+    var stage, label, shape, oldX, oldY, size, color, draw;
+
+    function init() {
+        stage = new createjs.Stage("mainCanvas");
+        stage.enableDOMEvents(true);
+
+        shape = new createjs.Shape();
+        stage.addChild(shape);
+
+        // set up our defaults:
+        color = "#0FF";
+        size = 1;
+        draw = false;
+
+        // add handler for stage mouse events:
+        stage.on("stagemousedown", function (event) {
+            //            size = 10;
+            draw = true;
+        })
+
+        stage.on("stagemouseup", function (event) {
+            //            color = createjs.Graphics.getHSL(Math.random() * 360, 100, 50);
+            //            size = 0.1;
+            draw = false;
+        })
+
+
+        stage.on("stagemousemove", function (evt) {
+            if (oldX && draw) {
+                shape.graphics.beginStroke(color)
+                    .setStrokeStyle(size, "round")
+                    .moveTo(oldX, oldY)
+                    .lineTo(evt.stageX, evt.stageY);
+                stage.update();
+            }
+            oldX = evt.stageX;
+            oldY = evt.stageY;
+        })
+
+        stage.update();
+    }
+</script>
