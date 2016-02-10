@@ -55,6 +55,7 @@
     function init() {
         stage = new createjs.Stage("mainCanvas");
         stage.enableDOMEvents(true);
+        createjs.Touch.enable(stage);
 
         shape = new createjs.Shape();
         stage.addChild(shape);
